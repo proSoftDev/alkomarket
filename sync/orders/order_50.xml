@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<order>
+    <id>50</id>
+    <name>admin</name>
+    <email>it_yvm@mail.ru</email>
+    <phone>+7(271) 312-3123</phone>
+    <address>Жумыскер</address>
+    <date>2019-10-31 14:44:18</date>
+    <comment>sad</comment>
+    <items>
+        <item>
+            <articul>РТ000004799</articul>
+            <count>1</count>
+        </item>
+    </items>
+</order>

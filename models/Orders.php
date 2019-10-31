@@ -15,7 +15,6 @@ use app\models\OrderedProduct;
  * @property string $telephone
  * @property string $address
  * @property string $comment
- * @property int $products_id
  * @property int $status
  * @property int $sum
  * @property string $order_date
@@ -37,8 +36,8 @@ class Orders extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'products_id', 'status', 'sum'], 'integer'],
-            [['fio', 'email', 'telephone', 'address', 'products_id', 'status', 'sum'], 'required'],
+            [['user_id', 'status', 'sum'], 'integer'],
+            [['fio', 'email', 'telephone', 'address', 'status', 'sum'], 'required'],
             [['comment'], 'string'],
             [['email'],'email'],
             [['order_date', 'date_of_receiving'], 'safe'],
@@ -59,7 +58,6 @@ class Orders extends \yii\db\ActiveRecord
             'telephone' => 'Мобильный телефон',
             'address' => 'Адрес доставки',
             'comment' => 'Коментарии',
-            'products_id' => 'Products ID',
             'status' => 'Статус заказа',
             'sum' => 'Сумма заказа',
             'order_date' => 'Время заказа',
@@ -86,7 +84,7 @@ class Orders extends \yii\db\ActiveRecord
     }
 
     public function getProducts(){
-        return $this->hasMany(Orderedproduct::className(), ['order_id' => 'products_id']);
+        return $this->hasMany(Orderedproduct::className(), ['order_id' => 'id']);
     }
 
     public function getAddresss(){
@@ -103,7 +101,7 @@ class Orders extends \yii\db\ActiveRecord
 
     public function beforeDelete()
     {
-        Orderedproduct::deleteAll(['order_id'=>$this->products_id]);
+        Orderedproduct::deleteAll(['order_id'=>$this->id]);
         return parent::beforeDelete();
     }
 }

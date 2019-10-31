@@ -142,18 +142,16 @@ class CardController extends FrontendController
     public function actionOrderByUser(){
 
         $delivery = DeliveryPrice::findOne($_POST['Orders']['address']);
-        $id = time();
         $sum = Product::getSum();
         $order = new Orders();
         $order->user_id = Yii::$app->user->identity->id;
-        $order->products_id = $id;
         $order->status = 0;
         $order->sum = $sum + $delivery->price;
         if ($order->load(Yii::$app->request->post()) && $order->validate()) {
             if ($order->save() && $this->sendInformationAboutPayment($order->fio, $order->email, $order->id)) {
                 foreach ($_SESSION['basket'] as $v) {
                     $orderedProduct = new OrderedProduct();
-                    $orderedProduct->order_id = $id;
+                    $orderedProduct->order_id = $order->id;
                     $orderedProduct->product_id = $v->id;
                     $orderedProduct->count = $v->count;
                     if($orderedProduct->save()){
@@ -185,11 +183,9 @@ class CardController extends FrontendController
     public function actionOrderByGuest(){
 
         $delivery = DeliveryPrice::findOne($_POST['Orders']['address']);
-        $id = time();
         $sum = Product::getSum();
 
         $order = new Orders();
-        $order->products_id = $id;
         $order->status = 0;
         $order->sum = $sum + $delivery->price;
 
@@ -197,7 +193,7 @@ class CardController extends FrontendController
             if ($order->save() && $this->sendInformationAboutPayment($order->fio, $order->email, $order->id)) {
                 foreach ($_SESSION['basket'] as $v) {
                     $orderedProduct = new OrderedProduct();
-                    $orderedProduct->order_id = $id;
+                    $orderedProduct->order_id = $order->id;
                     $orderedProduct->product_id = $v->id;
                     $orderedProduct->count = $v->count;
                     if($orderedProduct->save()){
