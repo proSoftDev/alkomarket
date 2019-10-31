@@ -130,7 +130,7 @@ class Product extends \yii\db\ActiveRecord
     }
 
     public static function getList(){
-        return \yii\helpers\ArrayHelper::map(Product::find()->all(),'id','name');
+        return \yii\helpers\ArrayHelper::map(Product::find()->where('isDeleted=0')->all(),'id','name');
     }
 
     public function getCategoryName(){
@@ -148,7 +148,7 @@ class Product extends \yii\db\ActiveRecord
 
 
     public function getPreviuosId(){
-        $product = Product::find()->where('category_id='.$this->category_id)->orderBy('id DESC')->all();
+        $product = Product::find()->where('category_id='.$this->category_id.' AND isDeleted=0')->orderBy('id DESC')->all();
         $preId = "";
         foreach ($product as $v){
             if($v->id == $this->id){
@@ -160,7 +160,7 @@ class Product extends \yii\db\ActiveRecord
     }
 
     public function getNextId(){
-        $product = Product::find()->where('category_id='.$this->category_id)->orderBy('id DESC')->all();
+        $product = Product::find()->where('category_id='.$this->category_id.' AND isDeleted=0')->orderBy('id DESC')->all();
         $nextId = "";
         $check = false;
         foreach ($product as $v){
@@ -213,7 +213,7 @@ class Product extends \yii\db\ActiveRecord
 
     public static function getAll($id,$pageSize=16)
     {
-        $query =  Product::find()->where('category_id='.$id)->orderBy('id DESC');
+        $query =  Product::find()->where('category_id='.$id.' AND isDeleted=0')->orderBy('id DESC');
         $count = $query->count();
         $pagination = new Pagination(['totalCount' => $count, 'pageSize'=>$pageSize]);
         $articles = $query->offset($pagination->offset)
@@ -230,7 +230,7 @@ class Product extends \yii\db\ActiveRecord
     public static function getCountries()
     {
         $countries = array();
-        $query =  Product::find()->all();
+        $query =  Product::find()->where('isDeleted=0')->all();
         foreach ($query as $v){
             if(!in_array($v->countryName->name,$countries)){
                 $countries[$v->country] = $v->countryName->name;
@@ -242,7 +242,7 @@ class Product extends \yii\db\ActiveRecord
 
     public static function getOrderByCheap($id,$pageSize=16)
     {
-        $query =  Product::find()->where('category_id='.$id)->orderBy('price ASC');
+        $query =  Product::find()->where('category_id='.$id.' AND isDeleted=0')->orderBy('price ASC');
         $count = $query->count();
         $pagination = new Pagination(['totalCount' => $count, 'pageSize'=>$pageSize]);
         $articles = $query->offset($pagination->offset)
@@ -258,7 +258,7 @@ class Product extends \yii\db\ActiveRecord
 
     public static function getOrderByExpensive($id,$pageSize=16)
     {
-        $query =  Product::find()->where('category_id='.$id)->orderBy('price DESC');
+        $query =  Product::find()->where('category_id='.$id.' AND isDeleted=0')->orderBy('price DESC');
         $count = $query->count();
         $pagination = new Pagination(['totalCount' => $count, 'pageSize'=>$pageSize]);
         $articles = $query->offset($pagination->offset)
@@ -273,7 +273,7 @@ class Product extends \yii\db\ActiveRecord
 
     public static function getBetweenPrices($id, $min, $max, $pageSize=16)
     {
-        $query =  Product::find()->where('category_id='.$id." AND price > ".$min." AND price < ".$max)->orderBy('id DESC');
+        $query =  Product::find()->where('category_id='.$id." AND price > ".$min." AND price < ".$max.' AND isDeleted=0')->orderBy('id DESC');
         $count = $query->count();
         $pagination = new Pagination(['totalCount' => $count, 'pageSize'=>$pageSize]);
         $articles = $query->offset($pagination->offset)
@@ -288,7 +288,7 @@ class Product extends \yii\db\ActiveRecord
 
     public static function getNew($id,$pageSize=16)
     {
-        $query =  Product::find()->where('category_id='.$id.' AND isNew=1')->orderBy('id DESC');
+        $query =  Product::find()->where('category_id='.$id.' AND isNew=1'.' AND isDeleted=0')->orderBy('id DESC');
         $count = $query->count();
         $pagination = new Pagination(['totalCount' => $count, 'pageSize'=>$pageSize]);
         $articles = $query->offset($pagination->offset)
@@ -304,7 +304,7 @@ class Product extends \yii\db\ActiveRecord
 
     public static function getPromo($id,$pageSize=16)
     {
-        $query =  Product::find()->where('category_id='.$id.' AND isDiscount=1')->orderBy('id DESC');
+        $query =  Product::find()->where('category_id='.$id.' AND isDiscount=1'.' AND isDeleted=0')->orderBy('id DESC');
         $count = $query->count();
         $pagination = new Pagination(['totalCount' => $count, 'pageSize'=>$pageSize]);
         $articles = $query->offset($pagination->offset)
@@ -320,7 +320,7 @@ class Product extends \yii\db\ActiveRecord
 
     public static function getByCountry($id ,$country_id ,$pageSize=16)
     {
-        $query =  Product::find()->where('category_id='.$id.' AND country='.$country_id)->orderBy('id DESC');
+        $query =  Product::find()->where('category_id='.$id.' AND country='.$country_id.' AND isDeleted=0')->orderBy('id DESC');
         $count = $query->count();
         $pagination = new Pagination(['totalCount' => $count, 'pageSize'=>$pageSize]);
         $articles = $query->offset($pagination->offset)
@@ -336,7 +336,7 @@ class Product extends \yii\db\ActiveRecord
 
     public static function getPopular($id,$pageSize=16)
     {
-        $query =  Product::find()->where('category_id='.$id)->orderBy('number_of_sales DESC');
+        $query =  Product::find()->where('category_id='.$id.' AND isDeleted=0')->orderBy('number_of_sales DESC');
         $count = $query->count();
         $pagination = new Pagination(['totalCount' => $count, 'pageSize'=>$pageSize]);
         $articles = $query->offset($pagination->offset)
@@ -346,6 +346,11 @@ class Product extends \yii\db\ActiveRecord
         $data['pagination'] = $pagination;
 
         return $data;
+    }
+
+    public function deleteProduct(){
+        $this->isDeleted = 1;
+        return $this->save(false);
     }
 
 

@@ -15,7 +15,7 @@ class Sync extends Component
     {
         $order = \app\models\Orders::find()->where(['id' => $order_id])->one();
 
-        $address = ($order->address) ? $order->address : 'Нет';
+        $address = ($order->address) ? $order->getAddressName() : 'Нет';
         $comment = ($order->comment) ? $order->comment : 'Нет';
 
         $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";

@@ -109,7 +109,7 @@ class SiteController extends FrontendController
     public function actionAllCatalog($id)
     {
         $model = Category::find()->where('id ='.$id)->one();
-        $products['data'] = Product::find()->where('category_id='.$id)->orderBy('id DESC')->all();
+        $products['data'] = Product::find()->where('category_id='.$id.' AND isDeleted=0')->orderBy('id DESC')->all();
         $this->setMeta($model->metaName, $model->metaKey, $model->metaDesc);
         $countries = Product::getCountries();
         $filter = Filter::findOne(['category_id'=>$model->id]);
@@ -175,21 +175,22 @@ class SiteController extends FrontendController
     // Sorting product without pagination
     public function actionAllCatalogOrderByCheap()
     {
-        $products =  Product::find()->where('category_id='.$_GET['id'])->orderBy('price ASC')->all();
+        $products =  Product::find()->where('category_id='.$_GET['id'].' AND isDeleted=0')->orderBy('price ASC')->all();
         return $this->renderAjax('FilterResultAllCatalog', compact('products','error'));
     }
 
 
     public function actionAllCatalogOrderByExpensive()
     {
-        $products =  Product::find()->where('category_id='.$_GET['id'])->orderBy('price DESC')->all();
+        $products =  Product::find()->where('category_id='.$_GET['id'].' AND isDeleted=0')->orderBy('price DESC')->all();
         return $this->renderAjax('FilterResultAllCatalog', compact('products','error'));
     }
 
 
     public function actionAllCatalogGetBetweenPrices()
     {
-        $products =  Product::find()->where('category_id='.$_GET['id']." AND price > ".$_GET['min']." AND price < ".$_GET['max'])->orderBy('id DESC')->all();
+        $products =  Product::find()->where('category_id='.$_GET['id']." AND price > ".$_GET['min']." AND price < ".$_GET['max']
+            .' AND isDeleted=0'.' AND isDeleted=0')->orderBy('id DESC')->all();
         return $this->renderAjax('FilterResultAllCatalog', compact('products','error'));
     }
 
@@ -197,7 +198,8 @@ class SiteController extends FrontendController
 
     public function actionAllCatalogGetNew()
     {
-        $products =  Product::find()->where('category_id='.$_GET['id'].' AND isNew=1')->orderBy('id DESC')->all();
+        $products =  Product::find()->where('category_id='.$_GET['id'].' AND isNew=1'
+            .' AND isDeleted=0')->orderBy('id DESC')->all();
         return $this->renderAjax('FilterResultAllCatalog', compact('products','error'));
     }
 
@@ -205,21 +207,24 @@ class SiteController extends FrontendController
 
     public function actionAllCatalogGetPromo()
     {
-        $products =  Product::find()->where('category_id='.$_GET['id'].' AND isDiscount=1')->orderBy('id DESC')->all();
+        $products =  Product::find()->where('category_id='.$_GET['id'].' AND isDiscount=1'
+            .' AND isDeleted=0')->orderBy('id DESC')->all();
         return $this->renderAjax('FilterResultAllCatalog', compact('products','error'));
     }
 
 
     public function actionAllCatalogGetByCountry()
     {
-        $products =  Product::find()->where('category_id='.$_GET['id'].' AND country='.$_GET['country_id'])->orderBy('id DESC')->all();
+        $products =  Product::find()->where('category_id='.$_GET['id'].' AND country='.$_GET['country_id']
+            .' AND isDeleted=0')->orderBy('id DESC')->all();
         return $this->renderAjax('FilterResultAllCatalog', compact('products','error'));
     }
 
 
     public function actionAllCatalogGetPopular()
     {
-        $products =  Product::find()->where('category_id='.$_GET['id'])->orderBy('number_of_sales DESC')->all();
+        $products =  Product::find()->where('category_id='.$_GET['id']
+            .' AND isDeleted=0')->orderBy('number_of_sales DESC')->all();
         return $this->renderAjax('FilterResultAllCatalog', compact('products','error'));
     }
 

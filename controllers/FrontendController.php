@@ -32,7 +32,7 @@ class FrontendController extends Controller
         $catalog = Catalog::find()->with('catalogItems')->all();
         $popCategory = Category::find()->where('isPopular=1')->all();
         $email = Emailforrequest::find()->one();
-        $bestProduct = Product::find()->where('isMain=1')->all();
+        $bestProduct = Product::find()->where('isMain=1'.' AND isDeleted=0')->all();
 
 
         Yii::$app->view->params['menu'] = $menu;

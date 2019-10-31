@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<order>
+    <id>36</id>
+    <name>admin</name>
+    <email>it_yvm@mail.ru</email>
+    <phone>+7(708) 819-1479</phone>
+    <address>Нет</address>
+    <date>2019-10-31 12:37:41</date>
+    <comment>Нет</comment>
+    <items>
+        <item>
+            <articul>РТ000001593</articul>
+            <count>1</count>
+        </item>
+    </items>
+</order>

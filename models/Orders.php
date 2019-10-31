@@ -89,6 +89,18 @@ class Orders extends \yii\db\ActiveRecord
         return $this->hasMany(Orderedproduct::className(), ['order_id' => 'products_id']);
     }
 
+    public function getAddresss(){
+        return $this->hasOne(DeliveryPrice::className(), ['id' => 'address']);
+    }
+
+    public function getAddressName(){
+        return (isset($this->addresss))? $this->addresss->address:'Нет';
+    }
+
+    public function getComment(){
+        return ($this->comment != null)? $this->comment:'Нет';
+    }
+
     public function beforeDelete()
     {
         Orderedproduct::deleteAll(['order_id'=>$this->products_id]);

@@ -163,6 +163,7 @@ class CardController extends FrontendController
                     }
                 }
                 unset($_SESSION['basket']);
+                Yii::$app->sync->orderExport($order->id);
                 Yii::$app->getSession()->setFlash('basketSuccess', 'Ваш заказ принят!');
                 return 1;
             }else {
@@ -206,6 +207,7 @@ class CardController extends FrontendController
                     }
                 }
                 unset($_SESSION['basket']);
+                Yii::$app->sync->orderExport($order->id);
                 Yii::$app->getSession()->setFlash('basketSuccess', 'Ваш заказ принят!');
                 return 1;
             } else {

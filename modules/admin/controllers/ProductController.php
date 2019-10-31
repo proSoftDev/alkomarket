@@ -165,7 +165,7 @@ class ProductController extends BackendController
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($id)->deleteProduct();
 
         return $this->redirect(['index']);
     }

@@ -84,7 +84,9 @@ class ProductSearch extends Product
             ->andFilterWhere(['like', 'metaName', $this->metaName])
             ->andFilterWhere(['like', 'metaDesc', $this->metaDesc])
             ->andFilterWhere(['like', 'metaKey', $this->metaKey]);
+        $query->where('isDeleted=0');
         $query->orderBy('id DESC');
+
         return $dataProvider;
     }
 }

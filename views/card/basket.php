@@ -91,8 +91,7 @@ use yii\helpers\Url;
                         </div>
                         <span>Адрес доставки</span>
                         <select name="Orders[address]" class="delivery_price_sum">
-                            <? $priceSum = 0; ?>
-                            <option value="<?= $priceSum; ?>"></option>
+                            <option value="0" data-price = "0"></option>
                             <? foreach ($address as $v):?>
                                 <option class="price_sum" value="<?=$v->id;?>" data-price = "<?=$v->price;?>"  ><?=$v->address;?></option>
                             <? endforeach;?>
@@ -126,12 +125,12 @@ use yii\helpers\Url;
                                     <a href="<?=Url::toRoute(['/card/delete-all'])?>">Очистить корзину</a>
                                 </div>
                                 <? if(!Yii::$app->user->isGuest):?>
-                                    <a style="cursor: pointer" class="btn-pay" id="pay-by-user">
+                                    <bu style="cursor: pointer" class="btn-pay pay-by-user" >
                                         Перейти к оплате
-                                    </a>
+                                    </bu>
                                 <? endif;?>
                                 <? if(Yii::$app->user->isGuest):?>
-                                    <a style="cursor: pointer" class="btn-pay" id="pay-by-guest">
+                                    <a style="cursor: pointer" class="btn-pay pay-by-guest" >
                                         Перейти к оплате
                                     </a>
                                 <? endif;?>
@@ -265,45 +264,57 @@ use yii\helpers\Url;
 
 
 
-            $("#pay-by-guest").click(function () {
-                $.ajax({
-                    type: 'POST',
-                    url: "/card/order-by-guest",
-                    data: $(this).closest('form').serialize(),
-                    success: function(data){
-                        if(data==1){
-                            window.location.href = "/";
-                        }else if(data==0){
+            $(".pay-by-guest").click(function () {
+                $(this).removeClass('pay-by-guest');
+
+                    $.ajax({
+                        type: 'POST',
+                        url: "/card/order-by-guest",
+                        data: $(this).closest('form').serialize(),
+                        success: function(data){
+                            if(data==1){
+                                window.location.href = "/";
+                            }else if(data==0){
+                                $(this).addClass('pay-by-guest');
+                                swal('Ошибка!',"Что-то пошло не так!", 'error');
+                            }else{
+                                $(this).addClass('pay-by-guest');
+                                swal('Ошибка!',data, 'error');
+                            }
+                        },
+                        error: function () {
+                            $(this).addClass('pay-by-guest');
                             swal('Ошибка!',"Что-то пошло не так!", 'error');
-                        }else{
-                            swal('Ошибка!',data, 'error');
                         }
-                    },
-                    error: function () {
-                        swal('Ошибка!',"Что-то пошло не так!", 'error');
-                    }
-                });
+                    });
+
             });
 
 
-            $("#pay-by-user").click(function () {
-                $.ajax({
-                    type: 'POST',
-                    url: "/card/order-by-user",
-                    data: $(this).closest('form').serialize(),
-                    success: function(data){
-                        if(data==1){
-                            window.location.href = "/";
-                        }else if(data==0){
-                            swal('Ошибка!',"Что-то ошло не так!", 'error');
-                        }else{
-                            swal('Ошибка!',data, 'error');
+            $(".pay-by-user").click(function () {
+                $(this).removeClass('pay-by-user');
+
+                    $.ajax({
+                        type: 'POST',
+                        url: "/card/order-by-user",
+                        data: $(this).closest('form').serialize(),
+                        success: function (data) {
+                            if (data == 1) {
+                                window.location.href = "/";
+                            } else if (data == 0) {
+                                $(this).addClass('pay-by-user');
+                                swal('Ошибка!', "Что-то ошло не так!", 'error');
+                            } else {
+                                $(this).addClass('pay-by-user');
+                                swal('Ошибка!', data, 'error');
+                            }
+                        },
+                        error: function () {
+                            $(this).addClass('pay-by-user');
+                            swal('Ошибка!', "Что-то пошло не так!", 'error');
                         }
-                    },
-                    error: function () {
-                        swal('Ошибка!',"Что-то пошло не так!", 'error');
-                    }
-                });
+                    });
+
             });
 
 

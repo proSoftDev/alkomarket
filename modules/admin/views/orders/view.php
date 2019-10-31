@@ -33,8 +33,20 @@ $this->params['breadcrumbs'][] = $this->title;
             'fio',
             'email:email',
             'telephone',
-            'address',
-            'comment:ntext',
+            [
+                'attribute' => 'address',
+                'value' => function ($model) {
+                    return $model->getAddressName();
+                },
+                'format' => 'raw',
+            ],
+            [
+                'attribute' => 'comment',
+                'value' => function ($model) {
+                    return $model->getComment();
+                },
+                'format' => 'raw',
+            ],
             [
                 'attribute' => 'status',
                 'filter' => \app\modules\admin\controllers\LabelProgress::statusList(),

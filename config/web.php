@@ -70,7 +70,7 @@ $config = [
         ],
 
         'sync' => [
-            'class' => 'app\components\Sync'
+            'class' => 'app\components\Sync',
         ],
 
     ],

@@ -43,4 +43,6 @@ class DeliveryPrice extends \yii\db\ActiveRecord
             'price' => 'Цена'
         ];
     }
+
+
 }

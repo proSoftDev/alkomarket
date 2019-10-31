@@ -45,4 +45,9 @@ class OrderedProduct extends \yii\db\ActiveRecord
             'count' => 'Count',
         ];
     }
+
+    public function getProduct(){
+        return $this->hasOne(Product::className(), ['id' => 'product_id']);
+    }
+
 }

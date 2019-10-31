@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<order>
+    <id>37</id>
+    <name>admin</name>
+    <email>it_yvm@mail.ru</email>
+    <phone>+7(706) 625-3526</phone>
+    <address>Тайманова, Молдагулова</address>
+    <date>2019-10-31 12:41:25</date>
+    <comment>Нет</comment>
+    <items>
+        <item>
+            <articul>РТ000000502</articul>
+            <count>1</count>
+        </item>
+        <item>
+            <articul>РТ000003561</articul>
+            <count>1</count>
+        </item>
+    </items>
+</order>
