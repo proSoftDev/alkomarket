@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<order>
+    <id>5</id>
+    <name>Medet Shalabaev</name>
+    <email>medet@mail.ru</email>
+    <phone>+7(777) 565-4458</phone>
+    <address>Almaty, kaskelen 1/1b d123</address>
+    <date>2019-05-18 23:31:35</date>
+    <comment>Very fast deliver me!</comment>
+    <items>
+        <item>
+            <articul>РТ000003310</articul>
+            <count>8</count>
+        </item>
+        <item>
+            <articul>РТ000000216</articul>
+            <count>8</count>
+        </item>
+    </items>
+</order>

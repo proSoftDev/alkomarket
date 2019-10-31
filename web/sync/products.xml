@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<products>
+	<product>
+		<category>Алкоголь</category>
+		<category1>Вино</category1>
+		<name>Вино"КВ Вазисубани бел.сух"0,75</name>
+		<code>РТ000000210</code>
+		<price>2740</price>
+		<percent>12</percent>
+		<size>0,75</size>
+		<manufacturer>Campari</manufacturer>
+		<country>Kambodscha</country>
+		<new>0</new>
+		<discount>0</discount>
+	</product>
+	<product>
+		<category>Алкоголь</category>
+		<category1>Вино</category1>
+		<name>Вино"МтеваниКиндзмараули"кр п/сл 0,75</name>
+		<code>РТ000002020</code>
+		<price>3250</price>
+		<percent>12</percent>
+		<size>0,75</size>
+		<manufacturer>Тифлисский Винный Погребъ</manufacturer>
+		<country>Грузия</country>
+		<new>0</new>
+		<discount>0</discount>
+	</product>
+	<product>
+		<category>Алкоголь</category>
+		<category1>Вино</category1>
+		<name>Вино"TheLongLittleDog"бел сух 0,75л</name>
+		<code>РТ000004851</code>
+		<price>3000</price>
+		<percent>12</percent>
+		<size>0,75</size>
+		<manufacturer>Boutinot</manufacturer>
+		<country>Франция</country>
+		<new>0</new>
+		<discount>0</discount>
+	</product>
+	<product>
+		<category>Алкоголь</category>
+		<category1>Вино</category1>
+		<name>Вино"MetekhiАлазанскаяДолина"кр п/сл 0.75</name>
+		<code>РТ000003042</code>
+		<price>2110</price>
+		<percent>12</percent>
+		<size>0,75</size>
+		<manufacturer>Mildiani</manufacturer>
+		<country>Грузия</country>
+		<new>0</new>
+		<discount>0</discount>
+	</product>
+	<product>
+		<category>Алкоголь</category>
+		<category1>Вино</category1>
+		<name>Вино"ДолинаГрузииАлазанскаяДолина"бел п/сл 0,75л</name>
+		<code>РТ000003078</code>
+		<price>1880</price>
+		<percent>12</percent>
+		<size>0,75</size>
+		<manufacturer>Mildiani</manufacturer>
+		<country>Грузия</country>
+		<new>0</new>
+		<discount>0</discount>
+	</product>
+	<product>
+		<category>Алкоголь</category>
+		<category1>Вино</category1>
+		<name>Вино"КиндзмарулиМараниАлазанДолина"кр п/сл 0,75</name>
+		<code>РТ000002544</code>
+		<price>1640</price>
+		<percent>12</percent>
+		<size>0,75</size>
+		<manufacturer>Kindzmarauli Marani</manufacturer>
+		<country>Грузия</country>
+		<new>0</new>
+		<discount>0</discount>
+	</product>
+	<product>
+		<category>Алкоголь</category>
+		<category1>Вино</category1>
+		<name>Вино"Francoriani"бел п/сух 0.75 </name>
+		<code>РТ000003030</code>
+		<price>1480</price>
+		<percent>9,5</percent>
+		<size>0,75</size>
+		<manufacturer>SCHENK Italia</manufacturer>
+		<country>Италия </country>
+		<new>0</new>
+		<discount>0</discount>
+	</product>
+	<product>
+		<category>Алкоголь</category>
+		<category1>Вино</category1>
+		<name>Вино"MaraniАлазанскаяДолина"кр 0,75</name>
+		<code>РТ000001532</code>
+		<price>2730</price>
+		<percent>12</percent>
+		<size>0,75</size>
+		<manufacturer>Телавский винный погреб</manufacturer>
+		<country>Грузия</country>
+		<new>0</new>
+		<discount>0</discount>
+	</product>
+	<product>
+		<category>Алкоголь</category>
+		<category1>Вино</category1>
+		<name>Вино"San Valentin"кр п/сух 0,75</name>
+		<code>РТ000001475</code>
+		<price>5480</price>
+		<percent>14</percent>
+		<size>0,75</size>
+		<manufacturer>Torres</manufacturer>
+		<country>Италия </country>
+		<new>0</new>
+		<discount>0</discount>
+	</product>
+	<product>
+		<category>Алкоголь</category>
+		<category1>Вино</category1>
+		<name>Вино"CraftSauvignonBlancCrieman"0,75л</name>
+		<code>РТ000004065</code>
+		<price>1800</price>
+		<percent>13</percent>
+		<size>0,75</size>
+		<manufacturer>Marlborough</manufacturer>
+		<country>Новая Зеландия</country>
+		<new>0</new>
+		<discount>0</discount>
+	</product>
+</products>

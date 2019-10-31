@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<order>
+    <id>18</id>
+    <name>Dmitry</name>
+    <email>dmitry@astratyan.com</email>
+    <phone>+7(708) 040-4004</phone>
+    <address>st. Abay 201</address>
+    <comment>Нет</comment>
+    <date>2019-06-28 09:20:53</date>
+    <items>
+        <item>
+            <articul>1010311</articul>
+            <count>1</count>
+        </item>
+    </items>
+</order>

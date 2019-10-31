@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<products>
+	<product>
+		<category>Алкоголь</category>
+		<category1>Водка</category1>
+		<name>Водка"GRADUS Premium"0,7</name>
+		<code>РТ000004799</code>
+		<price>3130</price>
+		<percent>40</percent>
+		<size>0,7</size>
+		<manufacturer>Пермалко</manufacturer>
+		<countrycode>643</countrycode>
+		<new>0</new>
+		<discount>0</discount>
+	</product>
+	<product>
+		<category>Алкоголь</category>
+		<category1>Водка</category1>
+		<name>Водка"Русский Стандарт Gold"0,5</name>
+		<code>РТ000000561</code>
+		<price>4550</price>
+		<percent>40</percent>
+		<size>0,5</size>
+		<manufacturer>Русский Стандарт</manufacturer>
+		<countrycode>643</countrycode>
+		<new>0</new>
+		<discount>0</discount>
+	</product>
+	<product>
+		<category>Алкоголь</category>
+		<category1>Водка</category1>
+		<name>Водка"Beluga"п/у кожа 1л</name>
+		<code>РТ000003874</code>
+		<price>25460</price>
+		<percent>40</percent>
+		<size>1</size>
+		<manufacturer>Синергия</manufacturer>
+		<countrycode>643</countrycode>
+		<new>0</new>
+		<discount>0</discount>
+	</product>
+	<product>
+		<category>Алкоголь</category>
+		<category1>Водка</category1>
+		<name>Водка"Кристальная"0,5</name>
+		<code>РТ000001685</code>
+		<price>1740</price>
+		<percent>40</percent>
+		<size>0,5</size>
+		<manufacturer>Кристальная</manufacturer>
+		<countrycode>643</countrycode>
+		<new>0</new>
+		<discount>0</discount>
+	</product>
+</products>

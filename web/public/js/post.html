@@ -1,0 +1,56 @@
+{% extends 'mainApp/wrapper2.html' %}
+
+{% block content %}
+
+  <div class="main">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-10">
+          <div class="card blog">
+            <div class="row">
+              <div class="img-blog">
+                {% load staticfiles %}
+                <img src="{% static 'img/book6.jpg' %}" style="width: 360px; height: 500px;">
+              </div>
+              <div class="info-blog">
+                <p><b>Rating:</b> {{articles.rating}}</p>
+                <p><b>Genres:</b> {{articles.genres}}</p>
+                <p><b>Size:</b> {{articles.size}}</p>
+                <p><b>Lang:</b> {{articles.lang}}</p>
+                <p><b>Author:</b><a href="#"> {{articles.author}}</a></p>
+                <div class="soc-icons">
+                  <ul style="margin-left: -2.5rem">
+                    <li class="soc-icons-list"><a href="gmail.com"><img class="icon" src="{% static 'img/g.png' %}"></a></li>
+                    <li class="soc-icons-list"><a href="facebook.com"><img class="icon" src="{% static 'img/f.png' %}"></a></li>
+                    <li class="soc-icons-list"><a href="instagram.com"><img class="icon" src="{% static 'img/i.png' %}"></a></li>
+                    <li class="soc-icons-list"><a href="twitter.com"><img class="icon" src="{% static 'img/t.png' %}"></a></li>
+                  </ul>
+                </div>
+                <button type="button" class="btn btn-outline-success btn-sm">Download</button>
+              </div>
+              <div class="text-blog">
+                <h5 class="head-text">{{articles.title}}</h5>
+                <p class="text">
+                  {{articles.content|safe|linebreaks}}
+                </p>
+              </div>
+            <!-- Для комментарии <div class="comm"></div>!-->
+            </div>
+          </div>
+          <nav style="margin-top: 2rem;" aria-label="Page navigation example">
+              <ul class="pagination">
+                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                  <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+          </nav>
+        </div>
+        <div class="col-lg-1"></div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
